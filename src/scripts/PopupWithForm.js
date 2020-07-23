@@ -35,18 +35,7 @@ class PopupWithForm extends Popup {
 
         this._selector.addEventListener('click', () => {
             this.open();
-        });
-          
-        this._selector.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
-                this.close();
-            }
-        });
-        this._selector.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
-                this.close();
-            }
-        });
+        });         
         this._selector.addEventListener('click', (evt) => {
             if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
                 this.close();
@@ -54,15 +43,17 @@ class PopupWithForm extends Popup {
         });
 
         userForm.addEventListener('submit', () => {
-            this._formSubmitFunction(this._getInputValues('user'));
+            if(this._getInputValues('user').name){
+                this._formSubmitFunction(this._getInputValues('user'));
+            }
             this.close();
-            userForm.reset();
         });
 
         imageForm.addEventListener('submit', () => {
-            this._formSubmitFunction(this._getInputValues('image'), placesWrap);
+            if(this._getInputValues('image').name){
+                this._formSubmitFunction(this._getInputValues('image'), placesWrap);
+            }
             this.close();
-            imageForm.reset();
         });
     
     }

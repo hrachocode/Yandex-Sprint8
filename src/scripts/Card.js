@@ -1,14 +1,7 @@
 const imageModalWindow = document.querySelector('.popup_type_image');
-const imageElement = imageModalWindow.querySelector('.popup__image');
-const imageCaption = imageModalWindow.querySelector('.popup__caption');
 const ESC_KEYCODE = 27;
 const cardSelector = '.card-template';
 import PopupWithImage from './PopupWithImage.js';
-
-const closeModalWindow = () => {
-  imageModalWindow.classList.remove('popup_is-opened');
-  document.removeEventListener('keyup', handleEscUp);
-};
 
 const handleEscUp = (evt) => {
   evt.preventDefault();

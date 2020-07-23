@@ -40,16 +40,6 @@ class Popup {
                 this.close();
             }
         });
-        this._selector.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
-                this.close();
-            }
-        });
-        this._selector.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
-                this.close();
-            }
-        });
     }
 }
 
