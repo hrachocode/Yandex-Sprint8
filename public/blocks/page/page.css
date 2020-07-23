@@ -1,0 +1,10 @@
+@import url('./__content/page__content.css');
+@import url('./__section/page__section.css');
+
+.page {
+  background: #000;
+}
+
+.profile__image{
+  background-image: url('./images/avatar.jpg');
+}
