@@ -22,11 +22,24 @@ class PopupWithForm extends Popup {
             return {name: placeNameInput, link: placeLinkInput};
         }
     }
+
+    _submitListener = () => {
+        this.removeEventListeners();
+        if(this._getInputValues('image').name){
+            this._formSubmitFunction(this._getInputValues('image'), placesWrap);
+        }
+        this.close();
+    }
     
     close(){
         this._selector.classList.remove('popup_is-opened');
         document.removeEventListener('keyup', this._handleEscClose);
         document.querySelector('.popup__form').reset();
+    }
+
+    removeEventListeners(){
+        const imageForm = document.getElementsByClassName('popup__form')[1];
+        imageForm.removeEventListener('submit', this._submitListener, false);
     }
 
     setEventListeners(){
@@ -49,13 +62,8 @@ class PopupWithForm extends Popup {
             this.close();
         });
 
-        imageForm.addEventListener('submit', () => {
-            if(this._getInputValues('image').name){
-                this._formSubmitFunction(this._getInputValues('image'), placesWrap);
-            }
-            this.close();
-        });
-    
+        imageForm.addEventListener('submit', this._submitListener, false);
+
     }
 
 }
