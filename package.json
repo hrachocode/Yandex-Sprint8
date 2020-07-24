@@ -2,7 +2,7 @@
   "private": true,
   "name": "sprint_7",
   "version": "0.0.1",
-  "description": "Yandex.Praktikum canonical projects",
+  "description": "Yandex.Praktikum canoniqal projects",
   "scripts": {
     "hint": "htmlhint ./public/index.html",
     "deploy": "gh-pages -d public",
