@@ -107,7 +107,7 @@ class Card {
     popup.open();
     popup.setEventListeners();
   }
-  
+
   renderCard (data, wrap) {
     const card = new Card(data, cardSelector, Card.prototype.cardClickFunction);
     wrap.prepend(card.getView());

@@ -1,10 +1,15 @@
 const ESC_KEYCODE = 27;
 
 class Popup {
-    
+
     constructor(selector) {
       this._selector = selector;
       this.open = this.open.bind(this);
+      /* Можно Лучше: здесь можно обойтись без байдинга.
+          если есть смысл использовать, то можно обходить байдинг изменив
+          метод open на стрелочную функциую
+          open = () => { ...code }
+      */
     }
 
     open(){
@@ -19,7 +24,7 @@ class Popup {
 
     _handleEscClose = (evt) => {
         evt.preventDefault();
-        
+
         this._isEscEvent(evt, close);
     };
 
@@ -30,11 +35,11 @@ class Popup {
         }
     };
 
-    setEventListeners(){        
+    setEventListeners(){
         this._selector.addEventListener('click', () => {
             this.open();
         });
-          
+
         this._selector.addEventListener('click', (evt) => {
             if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
                 this.close();
@@ -42,5 +47,9 @@ class Popup {
         });
     }
 }
+
+/* класс Popup может только ответить за открытия-закрытия и инициализации listener ов
+    а функционал реализации закрытив при клике ESC можно переместить в папку utils
+*/
 
 export default Popup;

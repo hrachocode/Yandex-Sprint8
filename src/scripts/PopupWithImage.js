@@ -3,6 +3,7 @@ import Popup from './Popup.js';
 class PopupWithImage extends Popup {
     constructor(selector, text, link) {
       super();
+      /* не наследуеться selector с компонента Popup */
       this._selector = selector;
       this._text = text;
       this._link = link;

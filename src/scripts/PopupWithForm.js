@@ -21,6 +21,11 @@ class PopupWithForm extends Popup {
 
             return {name: placeNameInput, link: placeLinkInput};
         }
+        /*
+          в задании нужно сохранить поля только для пользовотеля, не для создания карты.
+          но если хотим реализовать и для карты
+            а. делаем отдельную вспомогательную функцию getFormValues с параметрами и вызиваем тут, чтоб не дублировать действие.
+        */
     }
 
     _submitListener = () => {
@@ -30,7 +35,7 @@ class PopupWithForm extends Popup {
         }
         this.close();
     }
-    
+
     close(){
         this._selector.classList.remove('popup_is-opened');
         document.removeEventListener('keyup', this._handleEscClose);
@@ -48,7 +53,7 @@ class PopupWithForm extends Popup {
 
         this._selector.addEventListener('click', () => {
             this.open();
-        });         
+        });
         this._selector.addEventListener('click', (evt) => {
             if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
                 this.close();
@@ -65,7 +70,8 @@ class PopupWithForm extends Popup {
         imageForm.addEventListener('submit', this._submitListener, false);
 
     }
-
+    // повторяется код которое можно оптимизироварь наследовая метод setventListeners класс Popup
+      // Пример: supoer.setEventListeners
 }
 
 export default PopupWithForm;
